@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Decryp a file or a folder with gpg and/or tar
+
+id=$GPGRECIPIENT
+decr=$(echo "$1" | cut -f 1 -d '.')
+fifo=$(echo "$1" | cut -f 2 -d '.')
+
+if [ $fifo == gpg ]; then
+	gpg -d $1 >> $decr
+	rm $1
+
+elif [ $fifo == tar ]; then
+	gpg -d $1 >> $decr.tar.gz
+	tar -xzf $decr.tar.gz
+	rm $1
+	rm $decr.tar.gz
+
+else echo "argument is an encrypted file"
+fi

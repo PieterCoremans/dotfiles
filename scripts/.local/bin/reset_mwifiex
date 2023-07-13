@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo rmmod mwifiex_pcie && sudo modprobe mwifiex_pcie

@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Encryp a file or a folder with gpg and/or tar
+
+id=$GPGRECIPIENT
+str="$1"
+
+if [ -f $1 ]; then
+	gpg -r $id -e $1
+	rm $1
+
+elif [ -d $1 ]; then
+	if [ $(echo "${str: -1}") == "/" ]; then
+		fol=$(echo "$1" | cut -f 1 -d "/")
+	else fol=$1
+	fi
+
+	tar -czf $fol.tar.gz $1
+	gpg -r $id -e $fol.tar.gz
+	rm -rf $1
+	rm $fol.tar.gz
+
+else echo "argument is not a file nor a folder"
+fi

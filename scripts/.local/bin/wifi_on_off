@@ -1,0 +1,11 @@
+#!/bin/bash
+
+wifi_status="$(nmcli radio wifi | grep enabled | wc -l)"
+wifi_on() { nmcli radio wifi on ; }
+wifi_off() { nmcli radio wifi off ; }
+
+if [ $wifi_status = 1 ]; then
+    wifi_off
+else
+    wifi_on
+fi

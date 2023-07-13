@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ $1 == "up" ]; then
+  cd $HOME/Documents/Coderen/Terraform/terraform-ansible
+  terraform apply -auto-approve
+  conf_file="$(sudo find /tmp -name 'peer1.conf')" 
+  sudo mv $conf_file /etc/wireguard/peer1.conf
+
+  echo "Wireguard server up and running."
+
+elif [ $1 == "down" ]; then
+  cd $HOME/Documents/Coderen/Terraform/terraform-ansible
+  terraform destroy -auto-approve
+  echo "Wireguard server is now down and destroyed xxx."
+
+else 
+	echo "No valid argument. Choose up or down."
+fi
+

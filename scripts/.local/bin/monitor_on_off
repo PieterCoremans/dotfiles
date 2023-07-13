@@ -1,0 +1,13 @@
+#!/bin/bash
+
+attached="$(xrandr | grep " connected" | wc -l)"
+connected="$(xrandr | grep \* | wc -l)"
+
+monitor_on() { $HOME/.local/bin/moncon ; }
+monitor_off() { $HOME/.local/bin/mondis ; }
+
+if [ $attached -ge 2 ] && [ $connected -eq 1 ]; then
+    monitor_on
+else
+    monitor_off
+fi

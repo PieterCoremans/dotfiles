@@ -1,0 +1,9 @@
+#!/bin/bash
+
+setxkbmap -option ''
+setxkbmap -model 'pc105aw-sl' -layout 'us' -variant 'colemak' -option 'misc:extend,lv5:caps_switch_lock,grp:shifts_toggle,compose:menu,misc:cmk_curl_dh' -v 9
+xmodmap -e "keycode  35 = backslash bar backslash bar asciitilde asciitilde XF86Favorites XF86MyComputer colon bar"
+xmodmap -e "keycode  51 = apostrophe quotedbl apostrophe quotedbl otilde Otilde Menu Menu apostrophe quotedbl"
+xmodmap -e "keycode  57 = slash question slash question questiondown asciitilde Multi_key Multi_key KP_Divide KP_Divide questiondown asciitilde Multi_key Multi_key KP_Divide KP_Divide"
+xmodmap -e "keycode  54 = d D d D dead_diaeresis asciitilde Pointer_Down Pointer_Down Num_Lock Num_Lock"
+xmodmap -e "keycode  56 = underscore minus underscore minus endash emdash F11 F11 KP_Subtract KP_Subtract"

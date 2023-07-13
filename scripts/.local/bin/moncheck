@@ -1,0 +1,10 @@
+#!/bin/bash
+
+xmonitor="$(xrandr | grep "^DP1 connected" | wc -l)"
+
+if [ $xmonitor == 1 ]; then
+  ~/.local/bin/moncon
+else
+  ~/.local/bin/mondis
+fi
+

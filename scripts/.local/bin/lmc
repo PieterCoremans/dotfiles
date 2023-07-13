@@ -1,0 +1,38 @@
+#!/bin/bash
+
+function send_notification() {
+        volume=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master))
+        dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}" -t 2000
+}
+
+send_not_mute() {
+	state=$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer sget Master))
+	case "$state" in
+		off) dunstify -a mutevolume "Muted" -t 2000;;
+		on) dunstify -a unmutevolume "Unmuted" -t 2000;;
+	esac
+}
+
+NUM="${2:-5}"
+
+# PULSE=true
+
+if [ "$PULSE" = true ]; then
+	echo lsdkjfq
+	toggle() { pulsemixer --toggle-mute ; }
+	mute() { pulsemixer --mute; }
+	up() { pulsemixer --change-volume +"$NUM"% ; }
+	down() { pulsemixer --change-volume -"$NUM"% ; }
+else
+	toggle() { amixer sset Master toggle ; }
+	mute() { amixer sset Master mute ; }
+	up() { amixer sset Master "$NUM"%+ ; }
+	down() { amixer sset Master "$NUM"%- ; }
+fi
+	
+case "$1" in 
+	toggle) toggle ; send_not_mute ;;
+	mute) mute ;;
+	up) up ; send_notification $1;;
+	down) down ; send_notification $1;;
+esac #>/dev/null

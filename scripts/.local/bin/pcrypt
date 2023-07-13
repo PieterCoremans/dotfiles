@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# A script to encrypt en decrypt files and folders with tar and gpg
+
+# Set GPGRECIPIENT equal to the email of the gpgkey you want to use to encrypt as an environment variable in .profile in your home directory
+id=$GPGRECIPIENT
+
+function check_arg(){
+  input="$OPTARG"
+}
+
+while getopts ':e:d:' OPTION; do
+  case $OPTION in
+    e)
+    # Encrypt a file or a folder with gpg and/or tar
+    
+    check_arg
+    
+    if [ -f $input ]; then
+      gpg -r $id -e $input
+      rm $input
+    
+    elif [ -d $input ]; then
+      if [ $(echo "${input: -1}") == "/" ]; then
+        fol=$(echo "$input" | cut -f 1 -d "/")
+      else 
+	fol=$input
+      fi
+    
+      tar -czf $fol.tar.gz $input
+      gpg -r $id -e $fol.tar.gz
+      rm -rf $input
+      rm $fol.tar.gz
+    
+    else echo "argument is not a file nor a folder"
+    fi
+    ;;
+    
+    d)
+    # Decrypt a file or a folder with gpg and/or tar
+    
+    check_arg
+    
+    decr=$(echo "$input" | cut -f 1 -d '.')
+    fifo=$(echo "$input" | cut -f 2 -d '.')
+    
+    if [ $fifo == gpg ]; then
+      gpg -d $input >> $decr
+      rm $input
+    
+    elif [ $fifo == tar ]; then
+      gpg -d $input >> $decr.tar.gz
+      tar -xzf $decr.tar.gz
+      rm $input
+      rm $decr.tar.gz
+    
+    else echo "argument is not an encrypted file"
+    fi
+    ;;
+    
+    \?)
+    echo "no valid flag given"
+    exit 1
+    ;;
+  esac
+done
+
+shift "$(($OPTIND -1))"
+
+if [ "$input" == "" ]; then
+  echo "no input file or folder given"
+  exit 1
+fi

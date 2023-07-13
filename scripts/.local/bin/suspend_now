@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#sudo sleep 0.1 # To get auth
+
+# reset wifi driver (otherwise Surface will not suspend)
+#sudo rmmod mwifiex_pcie && sudo modprobe mwifiex_pcie
+
+xflock4
+#slock
+sleep 3
+systemctl suspend
+
+#exit 0

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "wakeup shoud be enabled"
+
+tc_state=$(cat /sys/bus/usb/devices/1-7/power/wakeup)
+
+if [ $tc_state == "enabled" ]; then
+	echo "wake up is ENABLED for type cover"
+else
+	echo "wake up is DISABLED for type cover"
+fi
+
+sleep 3s
+
+# type cover info via command lsusb:
+#   Bus 001 Device 003: ID 045e:07e8 Microsoft Corp. Surface Type Cover
+
+# type cover info via dmesg | grep usb
+#usb 1-7: new full-speed USB device number 3 using xhci_hcd
+#[    3.335662] usb 1-7: New USB device found, idVendor=045e, idProduct=07e8, bcdDevice= 2.07
+#[    3.335677] usb 1-7: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+#[    3.335683] usb 1-7: Product: Surface Type Cover
+#[    3.335688] usb 1-7: Manufacturer: Microsoft

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+read -sp "fill in the password: " var1; echo -e "\n"
+echo "this is your password: $var1"
+sleep 3s
+exit 0

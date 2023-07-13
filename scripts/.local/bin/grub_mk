@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# grub mkconfig instructions on Fedora 36
+
+# Edit /etc/default/grub
+
+# After that, run the following command to reconfigure grub using the new configurations done in grub file
+
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+
+# type to see changed settings
+sudo grubby --info=ALL 
+# if system is already rebooted with the new kernel parameters you can use the following command to show those parameters
+# cat /proc/cmdline
+sleep 5s

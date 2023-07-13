@@ -1,0 +1,14 @@
+#!/bin/bash
+
+function send_notification() { 
+        brightness=$(brillo) 
+        dunstify -a "changebrightness" -u low -r "9995" -h int:value:"$brightness" -i "brightness-$1" "Brightness: ${brightness}%" -t 2000 
+}
+
+vol_up() { brillo -q -A 5 ; }
+vol_down() { brillo -q -U 5 ; }
+
+case "$1" in
+        up) vol_up ; send_notification $1;;
+        down) vol_down ; send_notification $1;;
+esac 

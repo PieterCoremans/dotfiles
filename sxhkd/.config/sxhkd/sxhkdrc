@@ -1,0 +1,62 @@
+super + w
+	firefox
+
+super + b
+	brave-browser
+
+super + e
+	nemo
+
+super + m
+	evolution
+
+super + r
+	gnome-terminal -- ranger
+
+super + k
+	keepassxc
+
+super + shift + Return
+	gnome-terminal
+
+super + t
+	gnome-terminal
+
+super + s
+    sqlitebrowser
+
+super + shift + s
+	xfce4-screenshooter
+
+super + shift + w
+	$HOME/.local/bin/wifi_on_off
+
+super + shift + m
+	$HOME/.local/bin/monitor_on_off
+
+super + shift + comma
+	$HOME/.local/bin/dwm_keys
+
+super + shift + x
+	$HOME/.local/bin/shutspend
+
+super + shift + a
+	$HOME/.local/bin/changekeys
+
+super + shift + p
+    passmenu
+
+super + shift + k
+    setxkbmap us colemak
+
+super + l
+	slock
+
+Print
+    xfce4-screenshooter
+
+XF86Audio{Mute,LowerVolume,RaiseVolume}
+	lmc {toggle,down,up}
+	
+XF86MonBrightness{Down,Up}
+	pbc {down, up}

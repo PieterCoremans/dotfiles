@@ -1,0 +1,12 @@
+#!/bin/bash
+
+chosen=$(echo -e "Shutdown\nSuspend\nReboot\nCancel" | dmenu -i -p "Select wat you want to do")
+
+case "$chosen" in
+  "Shutdown") shutdown now;;
+  "Suspend") systemctl suspend && slock;;
+  "Sleep") sleep_now;;
+  "Reboot") reboot;;
+  "Cancel") exit 0;;
+esac
+
