@@ -1,0 +1,41 @@
+cl()
+{
+    cd $@
+    ls
+}
+
+alias vbash="$EDITOR ~/.bashrc"
+alias zrc="$EDITOR ~/.config/zsh/.zshrc"
+alias szrc="source ~/.config/zsh/.zshrc"
+alias vvimrc="$EDITOR ~/.vimrc"
+alias arc="$EDITOR ~/.aliasrc"
+alias setkbbe="setxkbmap -model pc105 -layout be -variant oss -option ''"
+alias setkbus="setxkbmap -model pc105 -layout us -variant intl -option ''"
+alias setkbusintl="setxkbmap -layout us -variant altgr-intl -option nodeadkeys"
+alias i="sudo dnf install "
+alias s="dnf search "
+alias t="tmux"
+alias tls="tmux ls"
+alias tns="tmux new -s"
+alias tat="tmux attach -t"
+alias ll="ls -lah"
+alias cdu="cd .. && ll"
+alias r="ranger"
+alias v="nvim "
+alias vim="nvim "
+alias p="python3 "
+alias pyfo="cd ~/Documents/Coderen/Python/"
+alias bin="cd ~/.local/bin/"
+alias jour="journalctl -r"
+alias po="udisksctl power-off -b" #followed by eg: /dev/sdb
+alias contoserver="ssh -L 8888:ubuntu-server-tp:5432 pieter@192.168.1.14"
+alias wgu="sudo wg-quick up peer1"
+alias wgd="sudo wg-quick down peer1"
+alias wtr="curl wttr.in"
+alias pm="passmenu"
+alias tfa="terraform apply -auto-approve"
+alias grep="grep --color=auto"
+alias gits="git status"
+alias gitb="git branch"
+alias gitco="git add . && git commit"
+
