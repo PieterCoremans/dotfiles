@@ -1,10 +1,10 @@
 # Source aliases
-source ~/.aliasrc
+source ~/.config/zsh/.aliasrc
 
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE="$XDG_CACHE_HOME/zsh/history"
+# HISTFILE="$XDG_CACHE_HOME/zsh/history"
 # setopt appendhistory inc_append_history 
 
 # Editor

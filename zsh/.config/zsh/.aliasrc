@@ -4,11 +4,11 @@ cl()
     ls
 }
 
-alias vbash="$EDITOR $HOME/.bashrc"
 alias zrc="$EDITOR $HOME/.config/zsh/.zshrc"
 alias szrc="source $HOME/.config/zsh/.zshrc"
-alias vvimrc="$EDITOR $HOME/.vimrc"
-alias arc="$EDITOR $HOME/.aliasrc"
+alias arc="$EDITOR $HOME/.config/zsh/.aliasrc"
+alias vvimrc="$EDITOR $HOME/.vim/vimrc"
+alias vbash="$EDITOR $HOME/.local/sta/bash/.bashrc"
 
 alias setkbbe="setxkbmap -model pc105 -layout be -variant oss -option ''"
 alias setkbus="setxkbmap -model pc105 -layout us -variant intl -option ''"

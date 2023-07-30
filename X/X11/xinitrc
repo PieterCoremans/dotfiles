@@ -3,7 +3,8 @@
 #setxkbmap be &
 setxkbmap -layout us -variant altgr-intl -option nodeadkeys &
 
-xrdb -load ~/.Xresources &
+xrdb -load ~/.config/X11/Xresources &
+# xrdb -load ~/.Xresources &
 # ~/.local/bin/moncheck &
 
 xinput set-prop 9 333 0.4 & # set usb mouse sensitivity
