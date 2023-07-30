@@ -28,4 +28,3 @@ while true; do
 done
 
 exec dwm
-#exec setxkbcmcaw

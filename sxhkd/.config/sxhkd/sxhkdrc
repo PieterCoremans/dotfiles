@@ -1,47 +1,47 @@
 super + w
-	firefox
+    firefox
 
 super + b
-	brave-browser
+    brave-browser
 
 super + e
-	nemo
+    nemo
 
 super + m
-	evolution
+    evolution
 
 super + r
-	gnome-terminal -- ranger
+    gnome-terminal -- ranger
 
 super + k
-	keepassxc
+    keepassxc
 
 super + shift + Return
-	gnome-terminal
+    gnome-terminal
 
 super + t
-	gnome-terminal
+    gnome-terminal
 
 super + s
     sqlitebrowser
 
 super + shift + s
-	xfce4-screenshooter
+    xfce4-screenshooter
 
 super + shift + w
-	$HOME/.local/bin/wifi_on_off
+    $HOME/.local/bin/wifi_on_off
 
 super + shift + m
-	$HOME/.local/bin/monitor_on_off
+    $HOME/.local/bin/monitor_on_off
 
 super + shift + comma
-	$HOME/.local/bin/dwm_keys
+    $HOME/.local/bin/dwm_keys
 
 super + shift + x
-	$HOME/.local/bin/shutspend
+    $HOME/.local/bin/shutspend
 
 super + shift + a
-	$HOME/.local/bin/changekeys
+    $HOME/.local/bin/changekeys
 
 super + shift + p
     passmenu
@@ -50,13 +50,23 @@ super + shift + k
     setxkbmap us colemak
 
 super + l
-	slock
+    slock
 
 Print
     xfce4-screenshooter
 
 XF86Audio{Mute,LowerVolume,RaiseVolume}
-	lmc {toggle,down,up}
-	
+    lmc {toggle,down,up}
+
 XF86MonBrightness{Down,Up}
-	pbc {down, up}
+    pbc {down, up}
+
+Pause
+    lmc toggle
+
+alt + shift + {Down, Up}
+    lmc {down,up}
+
+alt + shift + {Left, Right}
+    pbc {down, up}
+
