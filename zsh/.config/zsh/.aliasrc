@@ -4,6 +4,9 @@ cl()
     ls
 }
 
+# Use $XINITRC variable if file exists.
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
 alias zrc="$EDITOR $HOME/.config/zsh/.zshrc"
 alias szrc="source $HOME/.config/zsh/.zshrc"
 alias arc="$EDITOR $HOME/.config/zsh/.aliasrc"
